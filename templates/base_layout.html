@@ -1,0 +1,27 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr"> 
+  <head>
+    <meta charset="utf-8">
+    <title>Barrows Test</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1><img src="/static/logo.png" width="300" height="60"/></h1>
+      <nav>
+        <ul>
+          <li>
+            <form class="logout-link" action="/accounts/logout/" method="post">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
